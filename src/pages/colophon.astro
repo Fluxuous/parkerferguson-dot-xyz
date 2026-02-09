@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Colophon" description="How this site is built.">
+  <article class="prose">
+    <h1>Colophon</h1>
+    <p>
+      This site is built with <a href="https://astro.build">Astro</a>,
+      styled with <a href="https://tailwindcss.com">Tailwind CSS</a>,
+      and deployed on <a href="https://vercel.com">Vercel</a>.
+    </p>
+    <p>
+      Content is written in Markdown/MDX and managed through
+      <a href="https://docs.astro.build/en/guides/content-collections/">Astro Content Collections</a>.
+      The type system is enforced with TypeScript and Zod schemas.
+    </p>
+    <p>
+      Typography is set in <a href="https://rsms.me/inter/">Inter</a> for body text
+      and <a href="https://www.jetbrains.com/lp/mono/">JetBrains Mono</a> for code.
+    </p>
+    <p>
+      The design philosophy: minimal, fast, content-first. No tracking scripts,
+      no cookie banners, no JavaScript frameworks loading megabytes of code to
+      render text on a screen.
+    </p>
+    <p>
+      The source code is available on <a href="https://github.com/parkerferguson/parkerferguson-dot-xyz">GitHub</a>.
+    </p>
+  </article>
+</BaseLayout>

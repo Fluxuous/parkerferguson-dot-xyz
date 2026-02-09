@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const links = (await getCollection('links'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Links" description="Interesting things Parker Ferguson has found on the internet.">
+  <h1 class="text-3xl font-bold tracking-tight mb-2">Links</h1>
+  <p class="text-text-muted mb-8">
+    Interesting things I've found. A low-effort way to share what's catching my attention.
+  </p>
+
+  <div class="grid gap-4">
+    {links.map((link) => (
+      <div class="py-3 border-b border-surface-2 last:border-0">
+        <a
+          href={link.data.url}
+          class="font-medium no-underline hover:text-accent"
+          target="_blank"
+          rel="noopener"
+        >
+          {link.data.title} &nearr;
+        </a>
+        {link.data.description && (
+          <p class="text-sm text-text-muted mt-1">{link.data.description}</p>
+        )}
+        <span class="text-xs text-text-muted mt-1 block">
+          {link.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+        </span>
+      </div>
+    ))}
+  </div>
+
+  {links.length === 0 && (
+    <p class="text-text-muted">Nothing here yet. Check back soon.</p>
+  )}
+</BaseLayout>

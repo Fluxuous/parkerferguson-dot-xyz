@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Group by year
+const postsByYear = posts.reduce((acc, post) => {
+  const year = post.data.date.getFullYear();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(post);
+  return acc;
+}, {} as Record<number, typeof posts>);
+
+const years = Object.keys(postsByYear)
+  .map(Number)
+  .sort((a, b) => b - a);
+---
+
+<BaseLayout title="Blog" description="Writing by Parker Ferguson on building, technology, and life.">
+  <h1 class="text-3xl font-bold tracking-tight mb-2">Blog</h1>
+  <p class="text-text-muted mb-8">Essays, notes, and whatever else I'm thinking about.</p>
+
+  {years.map((year) => (
+    <section class="mb-8">
+      <h2 class="text-sm font-medium uppercase tracking-wider text-text-muted mb-3">
+        {year}
+      </h2>
+      <div class="grid gap-1">
+        {postsByYear[year].map((post) => (
+          <a
+            href={`/blog/${post.id}`}
+            class="group flex items-baseline justify-between gap-4 py-2 no-underline"
+          >
+            <span class="font-medium text-text-primary group-hover:text-accent transition-colors">
+              {post.data.title}
+            </span>
+            <span class="shrink-0 text-sm text-text-muted tabular-nums">
+              {post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  {posts.length === 0 && (
+    <p class="text-text-muted">Nothing here yet. Check back soon.</p>
+  )}
+</BaseLayout>

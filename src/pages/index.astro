@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => a.data.sort - b.data.sort)
+  .slice(0, 4);
+---
+
+<BaseLayout title="Home">
+  <section class="mb-12">
+    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+      Hey, I'm Parker.
+    </h1>
+    <p class="text-lg text-text-secondary leading-relaxed max-w-[38rem]">
+      I build things, break things, and write about it. Twenty years in tech —
+      from trading systems to media platforms to whatever I'm tinkering with next.
+    </p>
+    <p class="text-text-muted mt-3">
+      <a href="/about">More about me</a> &middot;
+      <a href="/now">What I'm doing now</a>
+    </p>
+  </section>
+
+  {projects.length > 0 && (
+    <section class="mb-12">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-semibold tracking-tight">Projects</h2>
+        <a href="/projects" class="text-sm text-text-muted hover:text-text-secondary no-underline">
+          View all &rarr;
+        </a>
+      </div>
+      <div class="grid gap-3">
+        {projects.map((project) => (
+          <a
+            href={project.data.url || `/projects`}
+            class="group block p-4 rounded-lg border border-surface-2 hover:border-accent hover:bg-surface-1 transition-all no-underline"
+            target={project.data.url ? '_blank' : undefined}
+            rel={project.data.url ? 'noopener' : undefined}
+          >
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-medium text-text-primary group-hover:text-accent transition-colors">
+                  {project.data.title}
+                </h3>
+                <p class="text-sm text-text-muted mt-1">{project.data.description}</p>
+              </div>
+              <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-surface-1 text-text-muted">
+                {project.data.status}
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {posts.length > 0 && (
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-semibold tracking-tight">Recent Writing</h2>
+        <a href="/blog" class="text-sm text-text-muted hover:text-text-secondary no-underline">
+          View all &rarr;
+        </a>
+      </div>
+      <div class="grid gap-2">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} class="group flex items-baseline justify-between gap-4 py-2 no-underline">
+            <span class="font-medium text-text-primary group-hover:text-accent transition-colors">
+              {post.data.title}
+            </span>
+            <span class="shrink-0 text-sm text-text-muted tabular-nums">
+              {post.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

@@ -5,12 +5,12 @@ date: 2026-02-09
 tags: ["meta"]
 ---
 
-I've wanted a real home on the internet for a long time — a place that's mine, not a social profile or a platform someone else controls. Somewhere to share what I'm building, write about what I'm learning, and connect the threads between twenty years of doing this work.
+I wanted a place on the internet that's mine. Not a social profile, not a platform someone else controls. A place to share what I'm building and what I'm learning, on my own terms.
 
-So here it is.
+So I built one.
 
-I have a [consulting site](https://parkerferguson.co) that's great at saying "here's what I can do for you." But there's a whole world of projects, ideas, and writing that doesn't fit there. This is the place for all of that — the experiments, the essays, the tools, the things I'm most excited about.
+I have a [consulting site](https://parkerferguson.co) that does a specific job. It says "here's what I can do for you." But there's a whole layer underneath that. The projects. The experiments. The tools I'm building for myself that might be useful to other people. The ideas that don't fit in a pitch deck. That stuff lives here now.
 
-I'm going to use this space to build in public, share what I know, and put more of my work out into the world. There's a lot in flight and a lot more coming.
+What's coming: essays about building with AI, write-ups on the projects I'm shipping, and links to the best things I'm finding. There's a lot in flight.
 
 Welcome. Glad you're here.

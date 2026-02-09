@@ -6,11 +6,11 @@ const links = (await getCollection('links'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="Links" description="Things Parker Ferguson has found interesting.">
+<BaseLayout title="Links" description="Things Parker Ferguson recommends reading.">
   <h1 class="font-serif text-3xl text-text-primary mb-3">Links</h1>
   <p class="text-text-muted mb-10" style="line-height: 1.8;">
-    Things I've come across that stuck with me. Saved here partly for
-    myself, partly in case they're useful to someone else.
+    Things I've come across that are worth sharing — tools, essays, research,
+    and ideas from people doing great work.
   </p>
 
   <div class="space-y-6">
@@ -35,6 +35,6 @@ const links = (await getCollection('links'))
   </div>
 
   {links.length === 0 && (
-    <p class="text-text-muted italic">Nothing here yet. But soon.</p>
+    <p class="text-text-muted italic">First recommendations coming soon.</p>
   )}
 </BaseLayout>

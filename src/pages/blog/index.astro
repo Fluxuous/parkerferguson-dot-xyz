@@ -17,11 +17,11 @@ const years = Object.keys(postsByYear)
   .sort((a, b) => b - a);
 ---
 
-<BaseLayout title="Blog" description="Writing by Parker Ferguson — essays, notes, and whatever else.">
+<BaseLayout title="Blog" description="Writing by Parker Ferguson — on building, technology, and what's next.">
   <h1 class="font-serif text-3xl text-text-primary mb-3">Writing</h1>
   <p class="text-text-muted mb-10" style="line-height: 1.8;">
-    Long-form essays, short notes, and everything in between. I'm trying
-    to write more and worry less about whether it's good enough to publish.
+    Essays, notes, and ideas about building technology, working with AI,
+    and the things I find most interesting right now.
   </p>
 
   {years.map((year) => (
@@ -48,6 +48,6 @@ const years = Object.keys(postsByYear)
   ))}
 
   {posts.length === 0 && (
-    <p class="text-text-muted italic">Nothing here yet. But soon.</p>
+    <p class="text-text-muted italic">First posts coming soon.</p>
   )}
 </BaseLayout>

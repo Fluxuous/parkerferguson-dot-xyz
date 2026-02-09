@@ -7,11 +7,15 @@
 ## Content Voice / Tone Notes
 _What should parkerferguson.xyz sound like? Capture thoughts here._
 
-- Not a resume. Not LinkedIn. Not corporate.
-- First person. Conversational. Like talking to a smart friend.
-- Self-aware without being self-deprecating. Confident without being a douchebag.
-- Show the work, not just the results. The messy middle is interesting.
-- OK to be weird. The weird stuff is what makes it memorable.
+**Core directive: This site is the public face of pursuing your higher self.**
+
+- **Optimistic and forward-looking.** Everything here points toward what's next, what's possible, what's being built. Not backward-looking regret or apology.
+- **Inspiring, not apologetic.** No confessional poetry. No "aw shucks." No hedging, no disclaimers about things being unfinished. Represent the best of who you are.
+- **A testament to human creativity.** The through-line is someone who builds remarkable things and is energized by the work. That energy should be contagious.
+- **Confident without being a douchebag.** Let the work speak. State what you've done and what you're doing plainly. Confidence comes from specificity, not from adjectives.
+- **First person. Conversational. Warm.** Like talking to a smart friend who's excited about what they're working on.
+- **No self-deprecation. No shame. No hedging.** Delete every instance of "I'm trying to," "I should probably," "we'll see," "still figuring it out." Replace with declarative statements about what IS.
+- OK to be weird. The weird stuff is what makes it memorable. But weird-interesting, not weird-vulnerable.
 
 ## Things I Want People to Know About Me
 _Freeform braindump. What makes you, you?_

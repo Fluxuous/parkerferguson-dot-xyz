@@ -11,51 +11,46 @@ const grouped = {
   archived: projects.filter(p => p.data.status === 'archived'),
   idea: projects.filter(p => p.data.status === 'idea'),
 };
+
+const statusLabels: Record<string, string> = {
+  active: 'In Progress',
+  shipped: 'Shipped',
+  archived: 'Archived',
+  idea: 'On the Whiteboard',
+};
 ---
 
 <BaseLayout title="Projects" description="Things Parker Ferguson has built and is building.">
-  <h1 class="text-3xl font-bold tracking-tight mb-2">Projects</h1>
-  <p class="text-text-muted mb-8">Things I've built, am building, or want to build.</p>
+  <h1 class="font-serif text-3xl text-text-primary mb-3">Projects</h1>
+  <p class="text-text-muted mb-10" style="line-height: 1.8;">
+    A mix of things I've shipped, things I'm actively building, and things that
+    are still just ideas I'm circling around. Not everything makes it to the
+    finish line, and that's fine.
+  </p>
 
   {Object.entries(grouped).map(([status, items]) =>
     items.length > 0 && (
-      <section class="mb-10">
-        <h2 class="text-sm font-medium uppercase tracking-wider text-text-muted mb-4">
-          {status}
+      <section class="mb-12">
+        <h2 class="font-serif text-lg text-text-muted mb-5">
+          {statusLabels[status] || status}
         </h2>
-        <div class="grid gap-3">
+        <div class="space-y-6">
           {items.map((project) => (
-            <div class="p-4 rounded-lg border border-surface-2">
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <h3 class="font-medium text-text-primary">
-                    {project.data.url ? (
-                      <a href={project.data.url} target="_blank" rel="noopener" class="no-underline hover:text-accent">
-                        {project.data.title} &nearr;
-                      </a>
-                    ) : (
-                      project.data.title
-                    )}
-                  </h3>
-                  <p class="text-sm text-text-muted mt-1">{project.data.description}</p>
-                </div>
-                {project.data.repo && (
-                  <a
-                    href={project.data.repo}
-                    class="shrink-0 text-xs text-text-muted hover:text-text-secondary no-underline"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    source
+            <div>
+              <h3 class="font-medium text-text-primary">
+                {project.data.url ? (
+                  <a href={project.data.url} target="_blank" rel="noopener" class="no-underline hover:text-accent">
+                    {project.data.title}
                   </a>
+                ) : (
+                  project.data.title
                 )}
-              </div>
+              </h3>
+              <p class="text-sm text-text-secondary mt-1">{project.data.description}</p>
               {project.data.tags.length > 0 && (
-                <div class="flex flex-wrap gap-1.5 mt-3">
+                <div class="flex flex-wrap gap-2 mt-2">
                   {project.data.tags.map(tag => (
-                    <span class="text-xs px-2 py-0.5 rounded-full bg-surface-1 text-text-muted">
-                      {tag}
-                    </span>
+                    <span class="text-xs text-text-muted">{tag}</span>
                   ))}
                 </div>
               )}

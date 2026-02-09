@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['Lora', 'Georgia', 'Cambria', 'serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       colors: {
@@ -24,14 +25,7 @@ export default {
         },
       },
       maxWidth: {
-        content: '42rem',
-      },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: '42rem',
-          },
-        },
+        content: '40rem',
       },
     },
   },

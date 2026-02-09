@@ -10,20 +10,20 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="w-full max-w-content mx-auto px-5 pt-8 sm:pt-12 pb-0">
+<nav class="w-full max-w-content mx-auto px-6 pt-10 sm:pt-16 pb-0">
   <div class="flex flex-wrap items-center justify-between gap-4">
     <a href="/" class="text-text-primary hover:text-text-primary no-underline">
-      <span class="font-semibold text-lg tracking-tight">Parker Ferguson</span>
+      <span class="font-serif text-xl">Parker Ferguson</span>
     </a>
-    <div class="flex flex-wrap items-center gap-1 sm:gap-2">
+    <div class="flex flex-wrap items-center gap-4 sm:gap-5">
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
           class:list={[
-            'px-2.5 py-1 text-sm rounded-md transition-colors no-underline',
+            'text-sm transition-colors no-underline',
             currentPath.startsWith(href)
-              ? 'bg-surface-1 text-text-primary font-medium'
-              : 'text-text-muted hover:text-text-secondary hover:bg-surface-1',
+              ? 'text-text-primary'
+              : 'text-text-muted hover:text-text-secondary',
           ]}
         >
           {label}

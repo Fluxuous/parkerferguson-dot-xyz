@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = 'Parker Ferguson — builder, thinker, tinkerer.',
+  description = 'Parker Ferguson — building things, writing about it, figuring it out.',
   ogImage = '/og-default.png',
 } = Astro.props;
 
@@ -51,13 +51,13 @@ const fullTitle = title === 'Home' ? 'Parker Ferguson' : `${title} — Parker Fe
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400&display=swap"
       rel="stylesheet"
     />
   </head>
   <body class="min-h-screen flex flex-col">
     <Nav />
-    <main class="flex-1 w-full max-w-content mx-auto px-5 py-8 sm:py-12">
+    <main class="flex-1 w-full max-w-content mx-auto px-6 py-10 sm:py-16">
       <slot />
     </main>
     <Footer />

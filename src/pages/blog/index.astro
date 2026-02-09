@@ -5,7 +5,6 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// Group by year
 const postsByYear = posts.reduce((acc, post) => {
   const year = post.data.date.getFullYear();
   if (!acc[year]) acc[year] = [];
@@ -18,22 +17,25 @@ const years = Object.keys(postsByYear)
   .sort((a, b) => b - a);
 ---
 
-<BaseLayout title="Blog" description="Writing by Parker Ferguson on building, technology, and life.">
-  <h1 class="text-3xl font-bold tracking-tight mb-2">Blog</h1>
-  <p class="text-text-muted mb-8">Essays, notes, and whatever else I'm thinking about.</p>
+<BaseLayout title="Blog" description="Writing by Parker Ferguson — essays, notes, and whatever else.">
+  <h1 class="font-serif text-3xl text-text-primary mb-3">Writing</h1>
+  <p class="text-text-muted mb-10" style="line-height: 1.8;">
+    Long-form essays, short notes, and everything in between. I'm trying
+    to write more and worry less about whether it's good enough to publish.
+  </p>
 
   {years.map((year) => (
-    <section class="mb-8">
-      <h2 class="text-sm font-medium uppercase tracking-wider text-text-muted mb-3">
+    <section class="mb-10">
+      <h2 class="font-serif text-lg text-text-muted mb-4">
         {year}
       </h2>
-      <div class="grid gap-1">
+      <div class="space-y-2">
         {postsByYear[year].map((post) => (
           <a
             href={`/blog/${post.id}`}
-            class="group flex items-baseline justify-between gap-4 py-2 no-underline"
+            class="group flex items-baseline justify-between gap-4 py-1.5 no-underline"
           >
-            <span class="font-medium text-text-primary group-hover:text-accent transition-colors">
+            <span class="text-text-primary group-hover:text-accent transition-colors">
               {post.data.title}
             </span>
             <span class="shrink-0 text-sm text-text-muted tabular-nums">
@@ -46,6 +48,6 @@ const years = Object.keys(postsByYear)
   ))}
 
   {posts.length === 0 && (
-    <p class="text-text-muted">Nothing here yet. Check back soon.</p>
+    <p class="text-text-muted italic">Nothing here yet. But soon.</p>
   )}
 </BaseLayout>

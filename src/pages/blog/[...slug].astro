@@ -22,23 +22,13 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
 
 <BaseLayout title={post.data.title} description={post.data.description}>
   <article>
-    <header class="mb-8">
-      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
+    <header class="mb-10">
+      <h1 class="font-serif text-3xl sm:text-4xl text-text-primary mb-4" style="letter-spacing: -0.01em;">
         {post.data.title}
       </h1>
-      <div class="flex flex-wrap items-center gap-3 text-sm text-text-muted">
-        <time datetime={post.data.date.toISOString()}>
-          {formattedDate}
-        </time>
-        {post.data.tags.length > 0 && (
-          <span class="flex items-center gap-1.5">
-            &middot;
-            {post.data.tags.map(tag => (
-              <span class="px-2 py-0.5 rounded-full bg-surface-1 text-xs">{tag}</span>
-            ))}
-          </span>
-        )}
-      </div>
+      <time datetime={post.data.date.toISOString()} class="text-sm text-text-muted">
+        {formattedDate}
+      </time>
     </header>
     <div class="prose">
       <Content />
